@@ -24,10 +24,13 @@ The architecture follows a decoupled authentication and authorization flow:
 
 ### 2. Multi-Factor Authentication (MFA)
 ![MFA Check](./images/mfa-check.png)
+![MFA Checked](./images/mfa-checked.png)
 *Enforcement of a second security layer using an Authenticator App.*
 
 ### 3. Fine-Grained IAM Policy
 ![IAM Policy](./images/iam-policy.png)
+**Key Technical Detail:**
+By using the `${cognito-identity.amazonaws.com:sub}` variable within the IAM policy, the system ensures **Identity Isolation**. This means that even though thousands of users might share the same IAM Role, each individual is cryptographically restricted to their own "private folder" within the S3 bucket. A user can only read or write data where the folder name matches their unique Cognito Identity ID, preventing any unauthorized cross-user data access.
 *The JSON policy restricting the user to only specific cloud resources.*
 
 ## 💡 Key Learnings
