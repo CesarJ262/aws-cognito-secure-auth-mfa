@@ -29,9 +29,9 @@ The architecture follows a decoupled authentication and authorization flow:
 
 ### 3. Fine-Grained IAM Policy
 ![IAM Policy](./img/iam-policy.png)
+*The JSON policy restricting the user to only specific cloud resources.*
 **Key Technical Detail:**
 By using the `${cognito-identity.amazonaws.com:sub}` variable within the IAM policy, the system ensures **Identity Isolation**. This means that even though thousands of users might share the same IAM Role, each individual is cryptographically restricted to their own "private folder" within the S3 bucket. A user can only read or write data where the folder name matches their unique Cognito Identity ID, preventing any unauthorized cross-user data access.
-*The JSON policy restricting the user to only specific cloud resources.*
 
 ## 💡 Key Learnings
 * **AuthN vs AuthZ:** Deep dive into the difference between Authentication (User Pools) and Authorization (Identity Pools).
