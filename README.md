@@ -19,16 +19,16 @@ The architecture follows a decoupled authentication and authorization flow:
 *(Note: Replace these paths with your actual screenshots located in the /images folder)*
 
 ### 1. Cognito Hosted UI (Default Login Page)
-![Login UI](./images/login-ui.png)
+![Login UI](./img/login-ui.png)
 *The fully functional login interface provided by AWS.*
 
 ### 2. Multi-Factor Authentication (MFA)
-![MFA Check](./images/mfa-check.png)
-![MFA Checked](./images/mfa-checked.png)
+![MFA Check](./img/mfa-check.png)
+![MFA Checked](./img/mfa-checked.png)
 *Enforcement of a second security layer using an Authenticator App.*
 
 ### 3. Fine-Grained IAM Policy
-![IAM Policy](./images/iam-policy.png)
+![IAM Policy](./img/iam-policy.png)
 **Key Technical Detail:**
 By using the `${cognito-identity.amazonaws.com:sub}` variable within the IAM policy, the system ensures **Identity Isolation**. This means that even though thousands of users might share the same IAM Role, each individual is cryptographically restricted to their own "private folder" within the S3 bucket. A user can only read or write data where the folder name matches their unique Cognito Identity ID, preventing any unauthorized cross-user data access.
 *The JSON policy restricting the user to only specific cloud resources.*
