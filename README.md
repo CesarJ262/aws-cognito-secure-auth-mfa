@@ -13,10 +13,7 @@ The architecture follows a decoupled authentication and authorization flow:
 ## 🛠️ Tech Stack
 * **Amazon Cognito:** User Pools (Identity) & Identity Pools (Access).
 * **AWS IAM:** Roles, Inline Policies, and Trust Relationships.
-* **Infrastructure as Code (IaC):** Terraform (Optional / Included in `/terraform` folder).
-
-## 📸 Proof of Concept
-*(Note: Replace these paths with your actual screenshots located in the /images folder)*
+* **Infrastructure as Code (IaC):** Terraform
 
 ### 1. Cognito Hosted UI (Default Login Page)
 ![Login UI](./img/login-ui.png)
